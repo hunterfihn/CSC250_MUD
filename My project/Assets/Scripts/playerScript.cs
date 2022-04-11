@@ -51,7 +51,7 @@ public class playerScript : MonoBehaviour
         {
             rb.velocity = Vector3.right * speed;
         }
-        else if (Input.GetKey("space"))
+        else if (Input.GetKeyDown("space"))
         {
             rb.velocity = Vector3.up * speed;
         }

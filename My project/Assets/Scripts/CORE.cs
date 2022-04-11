@@ -17,10 +17,11 @@ public class CORE : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 20; i++)
+       /* for (int i = 0; i < 20; i++)
         {
-            Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-        }
+            Transform t = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+            Rigidbody rb = t.gameObject.GetComponent<Rigidbody>();
+        } */
         
     }
 

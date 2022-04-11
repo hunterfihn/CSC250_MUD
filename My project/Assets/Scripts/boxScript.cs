@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class boxScript : MonoBehaviour
 {
     private int count;
-    private Rigidbody erb;
-    public float espeed = 20f;
-    public Vector3 Movement;
-    
+    public GameObject thePlayer;
+    private Vector3 playerPosition;
+    private Rigidbody rb;
+    public float speed = 10.0f;
+    private NavMeshAgent agent;
 
-    // Start is called before the first frame update
     void Start() //like a constructor
     {
-        count = 0; 
-        erb = this.gameObject.GetComponent<Rigidbody>();
-        Movement = new Vector3(Random.Range(-5.0f, 5.0f), 0.0f, Random.Range(-5.0f, 5.0f));
+        count = 0;
+        rb = this.gameObject.GetComponent<Rigidbody>();
+        agent = this.gameObject.GetComponent<NavMeshAgent>();
+        // agent.speed = 10.0f;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -33,10 +35,6 @@ public class boxScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(true)
-        {
-            erb.velocity = Movement;
-        } 
-
+        agent.SetDestination(thePlayer.transform.position);
     }
 }
