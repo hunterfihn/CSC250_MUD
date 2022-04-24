@@ -11,13 +11,14 @@ public class boxScript : MonoBehaviour
     private Rigidbody rb;
     public float speed = 10.0f;
     private NavMeshAgent agent;
+    private Enemy theEnemy = new Enemy("Enemy");
 
     void Start() //like a constructor
     {
+        CORE.setEnemy(theEnemy);
         count = 0;
         rb = this.gameObject.GetComponent<Rigidbody>();
         agent = this.gameObject.GetComponent<NavMeshAgent>();
-        // agent.speed = 10.0f;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -32,6 +33,16 @@ public class boxScript : MonoBehaviour
         }
     }
 
+    /* public void setRoom(Room r)
+    {
+        this.currentRoom = r;
+    }
+
+    public Room getRoom()
+    {
+        return this.currentRoom;
+    }
+*/
     // Update is called once per frame
     void Update()
     {
