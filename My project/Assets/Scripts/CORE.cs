@@ -11,6 +11,17 @@ public class CORE : MonoBehaviour
     private static List<Room> theRooms = new List<Room>();
     private static Player currentPlayer = null;
     private static Enemy currentEnemy = null;
+    private static int destroyCount = 0;
+
+    public static GameObject getRoom()
+    {
+        return CORE.theRoomsGos[destroyCount];
+    }
+
+    public static void setDestroyCount(int x)
+    {
+        destroyCount = x;
+    }
 
     public static void setPlayer(Player p)
     {
