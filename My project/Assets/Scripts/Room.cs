@@ -6,9 +6,11 @@ public class Room
 {
     private Player thePlayer;
     private Enemy currentEnemy;
+    private GameObject currentRoomTrigger;
     
-    public Room()
+    public Room(GameObject currentRoomTrigger)
     {
+        this.currentRoomTrigger = currentRoomTrigger;
         this.thePlayer = null;
         this.currentEnemy = null;
     }
@@ -16,13 +18,26 @@ public class Room
     public void setPlayer(Player p)
     {
         this.thePlayer = p;
+
+        if(p.getRoom() != null)
+        {
+        Room playersCurrentRoom = p.getRoom();
+        //CORE.destroyRoomGOGivenRoomTrigger(playersCurrentRoom.currentRoomTrigger);
+        }
+
         this.thePlayer.setRoom(this);
     }
 
     public void setEnemy(Enemy e)
     {
         this.currentEnemy = e;
-        this.currentEnemy.setRoom(this);
+        
+        if(e.getRoom() != null)
+        {
+            Room enemysCurrentRoom = e.getRoom();
+            //CORE.destroyRoomGOGivenRoomTrigger(enemysCurrentRoom.currentRoomTrigger);
+        }
+         this.currentEnemy.setRoom(this);
     }
 
     public Player getPlayer()
@@ -33,5 +48,10 @@ public class Room
     public Enemy getEnemy()
     {
         return this.currentEnemy;
+    }
+
+    public GameObject getRoomTrigger()
+    {
+        return this.currentRoomTrigger;
     }
 }

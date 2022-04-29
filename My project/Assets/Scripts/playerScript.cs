@@ -8,7 +8,6 @@ public class playerScript : MonoBehaviour
     private Rigidbody rb;
     public float speed = 20f;
     private int count = 0;
-    private int destroyCount = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +20,9 @@ public class playerScript : MonoBehaviour
     {
 
         if (collision.gameObject.tag.Equals("Enemy"))
-        {
-            Destroy(CORE.getRoom());
-            CORE.setDestroyCount(destroyCount);
-            destroyCount++;
+        { 
             count++;
-            if (count == 14)
+            if (count == 3)
             {
                 this.thePlayer.addKill();
                 print("Kill Count: " + this.thePlayer.getKillCount());

@@ -8,20 +8,18 @@ public class CORE : MonoBehaviour
     public Transform spawnPoint;
 
     private static List<GameObject> theRoomsGos = new List<GameObject>();
+    private static List<GameObject> theRoomTriggerGos = new List<GameObject>();
     private static List<Room> theRooms = new List<Room>();
     private static Player currentPlayer = null;
     private static Enemy currentEnemy = null;
-    private static int destroyCount = 0;
 
-    public static GameObject getRoom()
+   /* public static void destroyRoomGOGivenRoomTrigger(GameObject roomTrigger)
     {
-        return CORE.theRoomsGos[destroyCount];
-    }
-
-    public static void setDestroyCount(int x)
-    {
-        destroyCount = x;
-    }
+        int indexOfRoomTrigger = CORE.theRoomTriggerGos.IndexOf(roomTrigger);
+        Destroy(CORE.theRoomsGos[indexOfRoomTrigger]);
+        CORE.theRoomTriggerGos.RemoveAt(indexOfRoomTrigger);
+        CORE.theRoomsGos.RemoveAt(indexOfRoomTrigger);
+    } */
 
     public static void setPlayer(Player p)
     {
@@ -51,6 +49,11 @@ public class CORE : MonoBehaviour
     public static void addRoomGO(GameObject go)
     {
         CORE.theRoomsGos.Add(go);
+    }
+
+    public static void addRoomTriggerGO(GameObject go)
+    {
+        CORE.theRoomTriggerGos.Add(go);
     }
 
     // Start is called before the first frame update

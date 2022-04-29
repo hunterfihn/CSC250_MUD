@@ -7,6 +7,7 @@ public class Enemy
     private string name;
     private Room currentRoom;
 
+
     public Enemy(string name)
     {
         this.name = name;
@@ -22,6 +23,7 @@ public class Enemy
     {
         return this.currentRoom;
     }
+    
     public string getName()
     {
         return this.name;
